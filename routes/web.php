@@ -19,7 +19,9 @@ Route::get('/', function () {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/main', 'HomeController@main')->name('main');
+Route::get('/about', 'HomeController@about');
+Route::get('/contact', 'HomeController@contact');
+Route::get('/services', 'HomeController@services');
 Route::get('/welcome', 'HomeController@logout')->name('welcome');
 Route::get('/soft', 'HomeController@soft')->name('soft');
 Route::post('/st_login/checklogin', 'HomeController@checklogin');
@@ -62,6 +64,8 @@ Route::get('/lab_delete/{id}', 'LabController@lab_delete');
 Route::get('/lab_view/{id}', 'LabController@lab_view');
 Route::get('/lab_edit/{id}', 'LabController@lab_edit');
 Route::post('/lab_edit_action/{id}', 'LabController@lab_edit_action');
+Route::get('/st_lab_edit/{id}', 'LabController@st_lab_edit');
+Route::post('/st_lab_edit_action/{id}', 'LabController@st_lab_edit_action');
 Route::get('/st_profile', 'HomeController@st_profile');
 Route::get('/st_logout', 'HomeController@st_logout');
 Route::get('/st_setting', 'HomeController@st_setting');
@@ -71,13 +75,13 @@ Route::get('/ad_logout', 'AdminController@ad_logout');
 Route::get('/ad_setting', 'AdminController@ad_setting');
 Route::post('/st_setting_action', 'AdminController@ad_setting_action');
 Route::get('/st_all_lab', 'HomeController@st_all_lab');
+Route::get('/accept_edit/{id}', 'LabController@accept_lab_edit');
+Route::post('/accept_lab_edit_action/{id}', 'LabController@accept_lab_edit_action');
+Route::get('/reject_edit/{id}', 'LabController@reject_edit');
 
 Route::get('/st_lab_view/{id}', 'LabController@st_lab_view');
 Route::get('/st_lab_delete/{id}', 'LabController@st_lab_delete');
 Route::get('/st_software', 'LabController@st_software');
 Route::get('/st_hardware', 'LabController@st_hardware');
 Route::get('/st_network', 'LabController@st_network');
-
-
-
-Route::get('/new', 'LabController@new');
+Route::get('/approve', 'LabController@approve_edit');

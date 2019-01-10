@@ -2,8 +2,10 @@
 @section('content')
 
             <div class="col-sm-6 col-md-3 grid-margin">
+
               <div class="card">
                 <div class="card-body">
+
                   <h2 class="card-title">All Users</h2>
                   @php
                   $user=DB::table('add_user_table')->count('id');

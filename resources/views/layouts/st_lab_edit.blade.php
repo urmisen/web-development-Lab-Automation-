@@ -1,5 +1,6 @@
-@extends('layouts.layout')
+@extends('layouts.st_layout')
 @section('content')
+
       <div class="col-12 col-lg-6 grid-margin">
           <div class="card">
               <div class="card-body">
@@ -12,7 +13,7 @@
                     Session::put('exception',null);
                   }
                   ?></p>
-                  <form class="forms-sample" method="POST" action="{{URL::to('/lab_edit_action/'.$lab_desc_view->id)}}" enctype="multipart/form-data">
+                  <form class="forms-sample" method="POST" action="{{URL::to('/st_lab_edit_action/'.$lab_desc_view->id)}}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <label for="exampleInputPassword1">Laboratory name</label>
                     <select class="form-control p-input" name="lab_name" value="{{($lab_desc_view->lab_name)}}">

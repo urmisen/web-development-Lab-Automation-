@@ -3,7 +3,7 @@
 
   <div class="card">
     <div class="card-body">
-      <h2 class="card-title">Data table</h2>
+      <h2 class="card-title">All User</h2>
       <p class="alert-success"><?php
       $exception=Session::get('exception');
       if($exception){

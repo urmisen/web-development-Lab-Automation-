@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{{asset('images/favicon.html')}}" />
+  <link href="{{asset('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body class="sidebar-dark">
   <!-- partial:partials/_settings-panel.html -->
@@ -43,7 +44,7 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar navbar-light col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper">
-        <a class="navbar-brand brand-logo" href="{{URL::to('/dashboard')}}"><img src="" alt="Logo"></a>
+        <a class="navbar-brand brand-logo" href="{{URL::to('/dashboard')}}"></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
         <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
@@ -51,12 +52,32 @@
         </button>
 
         <ul class="navbar-nav ml-lg-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link count-indicator" id="MailDropdown" href="#" data-toggle="dropdown">
+              <i class="fa fa-bell"></i>
+              <span class="count bg-danger"></span>
+            </a>
+           <div class="dropdown-menu navbar-dropdown mail-notification" aria-labelledby="MailDropdown">
 
+             <a class="dropdown-item" href="{{URL::to('/approve')}}">
+               <div class="sender-img">
+                 <img src="http://via.placeholder.com/47x47" alt="">
+
+               </div>
+               <div class="sender">
+                 <p class="Sende-name">update requests</p>
+
+               </div>
+             </a>
+
+            </div>
+            </li>
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator" id="MailDropdown" href="#" data-toggle="dropdown">
               <i class="mdi mdi-message-outline"></i>
-              <span class="count bg-danger"></span>
+
             </a>
+
             <div class="dropdown-menu navbar-dropdown mail-notification" aria-labelledby="MailDropdown">
 
 

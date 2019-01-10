@@ -3,7 +3,7 @@
       <div class="col-12 col-lg-6 grid-margin">
           <div class="card">
               <div class="card-body">
-                  <h2 class="card-title">Add User</h2>
+                  <h2 class="card-title">Edit User</h2>
 
                   <p class="alert-success"><?php
                   $exception=Session::get('exception');

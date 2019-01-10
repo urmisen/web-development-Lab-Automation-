@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <title>Simple Login System in Laravel</title>
+  <title>Login</title>
   <script src="{{asset('https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')}}"></script>
   <link rel="stylesheet" href="{{asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')}}" />
   <script src="{{asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')}}"></script>
@@ -107,6 +107,13 @@
        <div class="col-md-4 col-sm-4 col-xs-8">
 
        <form class="form-container"  method="POST" action="{{ url('/st_login/checklogin') }}">
+         <p class="alert-danger"><?php
+         $exception=Session::get('exception');
+         if($exception){
+           echo $exception;
+           Session::put('exception',null);
+         }
+         ?></p>
          <img src="images/u_login.png" class="user" alt="">
 
          {{ csrf_field() }}

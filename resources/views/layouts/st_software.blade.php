@@ -2,13 +2,20 @@
 @php
     function convert_state($value){
       $values=[
-      1=>'operationable' ,
-      2=>'not operationable',
+      1=>'operable' ,
+      2=>'not operable',
       ];
       return $values[$value];
     }
 @endphp
 @section('content')
+
+
+   <link rel="stylesheet" href="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')}}" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+   <script src="{{asset('https://code.jquery.com/jquery-3.3.1.slim.min.js')}}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js')}}" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="{{asset('https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js')}}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 
       <p class="alert-success"><?php
@@ -113,11 +120,11 @@
                   }
                   ?></p>
 
-                  <h1 id="heading">All Equipments</h1>
+                  <h1 id="heading">Sofware Lab Equipments</h1>
                   <ul id="galary">
               @foreach($soft_lab_info as $v_lab):
-                   <li><a href="#" data-lightbox="projects" data-title="{{$v_lab->computer_name}}" data-desc="{{convert_state($v_lab->state)}}"><img src="{{URL::to($v_lab->photo)}}" height="150" width="100"></a>
-                 <a href="{{URL::to('/st_lab_view/'.$v_lab->id)}}"><button type="submit" class="btn btn-outline-primary">Learn more</button></a></li>
+                   <li><a href="#" data-lightbox="projects" data-title="{{$v_lab->id}}" data-desc="{{convert_state($v_lab->state)}}"><img src="{{URL::to($v_lab->photo)}}" height="150" width="100"></a>
+                 <a href="{{URL::to('/st_lab_view/'.$v_lab->id)}}"><button type="submit" class="btn btn-outline-primary"><span class="glyphicon glyphicon-ok"></span>Learn more</button></a></li>
 
                @endforeach;
 

@@ -107,7 +107,15 @@
        <div class="col-md-4 col-sm-4 col-xs-8">
 
        <form class="form-container"  method="POST" action="{{ url('/admin_login/checklogin') }}">
+         <p class="alert-danger"><?php
+         $exception=Session::get('exception');
+         if($exception){
+           echo $exception;
+           Session::put('exception',null);
+         }
+         ?></p>
          <img src="images/ad_login.png" class="user" alt="">
+
 
          {{ csrf_field() }}
          <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

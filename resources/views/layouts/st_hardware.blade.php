@@ -94,9 +94,6 @@
               margin-right: 0;
             }
 
-
-
-
           }
       </style>
 
@@ -105,10 +102,10 @@
 
               <section>
                 <div class="container">
-                  <h1 id="heading">All Equipments</h1>
+                  <h1 id="heading">Hardware Lab Equipments</h1>
                   <ul id="galary">
               @foreach($hard_lab_info as $v_lab):
-                   <li><a href="#" data-lightbox="projects" data-title="{{$v_lab->computer_name}}" data-desc="{{convert_state($v_lab->state)}}"><img src="{{URL::to($v_lab->photo)}}" height="150" width="100"></a>
+                   <li><a href="#" data-lightbox="projects" data-title="{{$v_lab->id}}" data-desc="{{convert_state($v_lab->state)}}"><img src="{{URL::to($v_lab->photo)}}" height="150" width="100"></a>
                  <a href="{{URL::to('/st_lab_view/'.$v_lab->id)}}"><button class="btn btn-outline-primary">Learn more</button></a></li>
 
                @endforeach;

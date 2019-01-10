@@ -35,9 +35,21 @@ class HomeController extends Controller
 
 
 
-    public function main()
+    public function services()
     {
-        return view('layouts/main');
+        return view('layouts/services');
+    }
+
+    public function about(Request $request)
+    {
+
+
+      return view('layouts/about');
+    }
+
+    public function contact()
+    {
+        return view('layouts/contact');
     }
 
     public function soft()

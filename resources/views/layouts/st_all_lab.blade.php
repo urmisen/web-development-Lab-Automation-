@@ -60,7 +60,8 @@
 
                   <td>
                     <a href="{{URL::to('/st_lab_view/'.$v_lab->id)}}"><button class="btn btn-outline-primary">View</button></a>
-                    
+                    <a href="{{URL::to('/st_lab_edit/'.$v_lab->id)}}"><button class="btn btn-outline-primary">Edit</button></a>
+
                   </td>
                   <td><img src="{{URL::to($v_lab->photo)}}" height="50" width="50" style="border-circle:50%;"> </td>
               </tr>

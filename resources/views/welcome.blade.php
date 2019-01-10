@@ -172,10 +172,11 @@
           <nav>
             <h1>LAB  AUTOMATION</h1>
             <ul id="nav">
-              <li><a class="home_red" href="#">HOME</a></li>
-              <li><a class="home_black" href="#">About</a></li>
-              <li><a class="home_black" href="#">Services</a></li>
-              <li><a class="home_black" href="#">Contact</a></li>
+              <li><a class="home_red" href="{{URL::to('/')}}">HOME</a></li>
+              <li><a class="home_black" href="{{URL::to('/services')}}">Services</a></li>
+              <li><a class="home_black" href="{{URL::to('/about')}}">About</a></li>
+              <li><a class="home_black" href="{{URL::to('/contact')}}">Contact</a></li>
+
             </ul>
           </nav>
         </header>

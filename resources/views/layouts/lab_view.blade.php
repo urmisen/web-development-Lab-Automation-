@@ -1,4 +1,4 @@
-lab@extends('layouts.layout')
+@extends('layouts.layout')
 @section('content')
 <div class="content-wrapper">
   <div class="row user-profile">

@@ -10,6 +10,8 @@ use Validator;
 use Redirect;
 use Auth;
 use Session;
+use all;
+use save;
 
 class LabController extends Controller
 {
@@ -97,6 +99,86 @@ return view('layouts/layout')->with('lab_edit',$manage_desc_lab);
            return Redirect::to('/all_lab');
   }
 
+  public function st_lab_edit($id){
+  $lab_desc_view=DB::table('lab_equipment')->select('*')
+                                                  ->where('id',$id)
+                                                  ->first();
+  $manage_desc_lab=view('layouts/st_lab_edit')->with('lab_desc_view',$lab_desc_view);
+  return view('layouts/st_layout')->with('st_lab_edit',$manage_desc_lab);
+
+  }
+  public function st_lab_edit_action(Request $request){
+
+     $data=array();
+    $data['id']=$request->id;
+    $data['lab_name']=$request->lab_name;
+    $data['computer_name']=$request->computer_name;
+    $data['product_id']=$request->product_id;
+    $data['operating_system']=$request->operating_system;
+    $data['processor']=$request->processor;
+    $data['ram']=$request->ram;
+    $data['system_type']=$request->system_type;
+    $data['system_problem_or_lackings']=$request->system_problem_or_lackings;
+    $data['protection']=$request->protection;
+    $data['state']=$request->state;
+
+
+    DB::table('request')->insert($data);
+    Session::put('exception','The update Request is now pending for approval');
+    return Redirect::to('/st_all_lab');
+
+
+
+  }
+
+  public function accept_lab_edit($id){
+ $lab_desc_view=DB::table('request')->select('*')
+                                    ->where('id',$id)
+                                    ->first();
+$manage_desc_lab=view('layouts/stt_lab_edit')->with('lab_desc_view',$lab_desc_view);
+return view('layouts/layout')->with('stt_lab_edit',$manage_desc_lab);
+
+  }
+
+  public function accept_lab_edit_action(Request $request,$id){
+
+     $data=array();
+    $data['lab_name']=$request->lab_name;
+    $data['computer_name']=$request->computer_name;
+    $data['product_id']=$request->product_id;
+    $data['operating_system']=$request->operating_system;
+    $data['processor']=$request->processor;
+    $data['ram']=$request->ram;
+    $data['system_type']=$request->system_type;
+    $data['system_problem_or_lackings']=$request->system_problem_or_lackings;
+    $data['protection']=$request->protection;
+    $data['state']=$request->state;
+
+    DB::table('lab_equipment')->select('*')
+                               ->where('id',$id)
+                               ->update($data);
+
+   DB::table('request')->select('*')
+                       ->where('id',$id)
+                       ->delete();
+
+
+         Session::put('exception','Data update successfully');
+           return Redirect::to('/all_lab');
+  }
+
+
+  public function reject_edit($id){
+
+    DB::table('request')->select('*')
+                        ->where('id',$id)
+                        ->delete();
+    Session::put('exception','Data has been rejected');
+    return Redirect::to('/all_lab');
+
+  }
+
+
 
 
   public function add_lab_action(Request $request)
@@ -183,5 +265,14 @@ return view('layouts/st_layout')->with('st_lab_view',$manage_desc_lab);
    DB::table('lab_equipment')->where('id',$id)
                                ->delete();
 return Redirect::to('/st_all_lab');
+  }
+
+  public function approve_edit()
+  {
+    $all_lab_info=DB::table('request')->get();
+    $manage_lab=view('layouts.approve_edit')->with('all_lab_info',$all_lab_info);
+    return view('layouts/layout')->with('approve_edit',$manage_lab);
+
+
   }
 }
